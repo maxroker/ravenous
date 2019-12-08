@@ -15,17 +15,24 @@ Yelp.search = (term, location, sortBy) => {
     if (jsonResponse.businesses) {
       
       return jsonResponse.businesses.map(business => {
-        //console.log(business.name);
-        //console.log(business.review_count);
-        //console.log(business.categories[0].title);
+        // console.log(business.id);
+        // console.log(business.image_url);
+        // console.log(business.name);
+        // console.log(business.location.address1);
+        // console.log(business.location.city);
+        // console.log(business.location.state);
+        // console.log(business.location.zip_code);
+        // console.log(business.categories[0].title);
+        // console.log(business.rating);
+        // console.log(business.review_count);
         return {
           id: business.id,
           imageSrc: business.image_url,
           name: business.name,
-          address: business.address1,
-          city: business.city,
-          state: business.state,
-          zipCode: business.zip_code,
+          address: business.location.address1,
+          city: business.location.city,
+          state: business.location.state,
+          zipCode: business.location.zip_code,
           category: business.categories[0].title,
           rating: business.rating,
           reviewCount: business.review_count,
